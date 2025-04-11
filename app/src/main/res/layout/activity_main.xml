@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="15pt"
+        android:layout_marginBottom="10pt"
+        android:text="Welcome to EI Lab"
+        android:textSize="10pt"
+        android:textStyle="bold" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:onClick="startCamera"
+        android:text="Take a Picture"
+        android:textSize="10pt" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10pt"
+        android:scaleType="fitCenter" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10pt"
+        android:layout_marginTop="10pt"
+        android:layout_marginRight="10pt">
+
+        <TextView
+            android:id="@+id/llmText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5pt"
+            android:text="Short Story"
+            android:textSize="10pt"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <ProgressBar
+            android:id="@+id/llmProgressBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="2pt"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10pt"
+        android:layout_marginRight="10pt">
+
+        <TextView
+            android:id="@+id/geminiOut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5pt"
+            android:textSize="10pt" />
+
+    </ScrollView>
+
+</LinearLayout>
