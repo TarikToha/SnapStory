@@ -25,6 +25,10 @@ import com.google.common.util.concurrent.ListenableFuture;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
+/**
+ * MainActivity that captures an image from the camera, sends it to Google Gemini API,
+ * and displays a 100-word story generated based on the image content.
+ */
 public class MainActivity extends AppCompatActivity {
 
     private GenerativeModelFutures model;
@@ -34,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
     private ProgressBar llmProgressBar;
     private TextView geminiOut;
 
+    /**
+     * Initializes the UI and the Gemini model client.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,14 +53,19 @@ public class MainActivity extends AppCompatActivity {
         llmText = findViewById(R.id.llmText);
         llmProgressBar = findViewById(R.id.llmProgressBar);
         geminiOut = findViewById(R.id.geminiOut);
-
     }
 
+    /**
+     * Launches the camera intent to capture a photo.
+     */
     public void startCamera(View view) {
         Intent camera_intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(camera_intent, 1);
     }
 
+    /**
+     * Handles the result from the camera activity.
+     */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -70,6 +82,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Sends the captured image to Gemini API and retrieves a generated story.
+     */
     private void getStory(Bitmap image) {
 
         Content content = new Content.Builder()
@@ -97,7 +112,5 @@ public class MainActivity extends AppCompatActivity {
                 Log.e("Gemini", "Error: " + t.getMessage());
             }
         }, executor);
-
     }
-
 }

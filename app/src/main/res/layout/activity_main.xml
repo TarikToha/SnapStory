@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-
+    <!-- Welcome title -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -18,6 +18,7 @@
         android:textSize="10pt"
         android:textStyle="bold" />
 
+    <!-- Button to launch camera -->
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -26,6 +27,7 @@
         android:text="Take a Picture"
         android:textSize="10pt" />
 
+    <!-- ImageView to preview captured photo -->
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="200dp"
@@ -34,7 +36,7 @@
         android:layout_marginTop="10pt"
         android:scaleType="fitCenter" />
 
-
+    <!-- Horizontal layout for LLM label and progress bar -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -42,6 +44,7 @@
         android:layout_marginTop="10pt"
         android:layout_marginRight="10pt">
 
+        <!-- Label for generated story -->
         <TextView
             android:id="@+id/llmText"
             android:layout_width="wrap_content"
@@ -52,6 +55,7 @@
             android:textStyle="bold"
             android:visibility="gone" />
 
+        <!-- Progress bar for loading indication -->
         <ProgressBar
             android:id="@+id/llmProgressBar"
             android:layout_width="match_parent"
@@ -61,6 +65,7 @@
 
     </LinearLayout>
 
+    <!-- Scrollable output section for the generated story -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
