@@ -58,5 +58,5 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
     implementation(libs.generativeai)
     implementation(libs.guava)
-
+    implementation(libs.volley)
 }

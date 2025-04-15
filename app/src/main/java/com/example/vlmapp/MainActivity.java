@@ -6,9 +6,11 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -34,9 +36,10 @@ public class MainActivity extends AppCompatActivity {
     private GenerativeModelFutures model;
 
     private ImageView imageView;
-    private TextView llmText;
+    private TextView llmText, geminiOut;
     private ProgressBar llmProgressBar;
-    private TextView geminiOut;
+    private Button cameraButton, nextButton;
+    private String summary = "";
 
     /**
      * Initializes the UI and the Gemini model client.
@@ -49,10 +52,12 @@ public class MainActivity extends AppCompatActivity {
         GenerativeModel gm = new GenerativeModel("gemini-2.0-flash", BuildConfig.GEMINI_KEY);
         model = GenerativeModelFutures.from(gm);
 
+        cameraButton = findViewById(R.id.cameraButton);
         imageView = findViewById(R.id.imageView);
         llmText = findViewById(R.id.llmText);
         llmProgressBar = findViewById(R.id.llmProgressBar);
         geminiOut = findViewById(R.id.geminiOut);
+        nextButton = findViewById(R.id.nextButton);
     }
 
     /**
@@ -75,10 +80,12 @@ public class MainActivity extends AppCompatActivity {
             Bitmap image = (Bitmap) extras.get("data");
 
             imageView.setImageBitmap(image);
+            cameraButton.setVisibility(View.GONE);
             llmText.setVisibility(View.VISIBLE);
             llmProgressBar.setVisibility(View.VISIBLE);
 
             getStory(image);
+            Toast.makeText(this, "Generating a story...", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -89,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
 
         Content content = new Content.Builder()
                 .addImage(image)
-                .addText("Generate a story from the image in 100 words")
+                .addText("Generate a story from the image in a few sentences, without introductory text.")
                 .build();
 
         ListenableFuture<GenerateContentResponse> response = model.generateContent(content);
@@ -103,8 +110,11 @@ public class MainActivity extends AppCompatActivity {
                 runOnUiThread(() -> {
                     llmProgressBar.setVisibility(View.GONE);
                     geminiOut.setText(resultText);
+                    cameraButton.setVisibility(View.VISIBLE);
+                    nextButton.setVisibility(View.VISIBLE);
                 });
                 Log.d("Gemini", "Result: " + resultText);
+                summary = resultText;
             }
 
             @Override
@@ -112,5 +122,14 @@ public class MainActivity extends AppCompatActivity {
                 Log.e("Gemini", "Error: " + t.getMessage());
             }
         }, executor);
+    }
+
+    /**
+     * Proceeds to the ImageActivity, passing the generated summary as intent extra.
+     */
+    public void nextActivity(View view) {
+        Intent intent = new Intent(this, ImageActivity.class);
+        intent.putExtra("summary", summary);
+        startActivity(intent);
     }
 }
