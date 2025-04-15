@@ -124,11 +124,12 @@ public class MainActivity extends AppCompatActivity {
         }, executor);
     }
 
-
+    /**
+     * Proceeds to the ImageActivity, passing the generated summary as intent extra.
+     */
     public void nextActivity(View view) {
         Intent intent = new Intent(this, ImageActivity.class);
         intent.putExtra("summary", summary);
         startActivity(intent);
     }
-
 }
