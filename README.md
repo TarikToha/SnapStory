@@ -1,10 +1,11 @@
-# 📷 Snaps to Visual Narratives
+# Snaps to Visual Narratives
 
 ![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)
 
-This Android app transforms a captured photo into a short story and visualizes each sentence as an
-AI-generated scene using the Gemini multimodal API. It was showcased during the UNC Computer Science
-60th Anniversary Open House, held at Sitterson Hall on April 12, 2025.
+Snaps to Visual Narratives is an Android app that turns photos into illustrated stories. It uses
+Google’s Gemini API to generate a short story from an image and visualizes each sentence with
+AI-generated scenes. The app was showcased at the UNC Computer Science 60th Anniversary Open House
+on April 12, 2025.
 
 ---
 
