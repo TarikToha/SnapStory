@@ -1,12 +1,8 @@
-import java.util.Properties
-
-val envProps = Properties().apply {
-    val envFile = rootProject.file(".env")
-    if (envFile.exists()) {
-        load(envFile.inputStream())
-    }
-}
-
+val geminiKey = rootProject.file("local.properties")
+    .readLines()
+    .find { it.startsWith("GEMINI_KEY=") }
+    ?.substringAfter("=")
+    ?.trim() ?: ""
 
 plugins {
     alias(libs.plugins.android.application)
@@ -29,7 +25,7 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField("String", "GEMINI_KEY", "\"${envProps["GEMINI_KEY"]}\"")
+        buildConfigField("String", "GEMINI_KEY", "\"$geminiKey\"")
     }
 
     buildTypes {

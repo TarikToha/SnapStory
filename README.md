@@ -2,47 +2,47 @@
 
 ![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)
 
-Snaps to Visual Narratives is an Android app that turns photos into illustrated stories. It uses
-Google’s Gemini API to generate a short story from an image and visualizes each sentence with
-AI-generated scenes. The app was showcased at the UNC Computer Science 60th Anniversary Open House
-on April 12, 2025.
+Snaps to Visual Narratives is an Android app that turns photos into illustrated micro-stories. It
+uses Google’s Gemini API to generate short narratives from captured images and visualizes each
+sentence with AI-generated artwork—ideal for storytelling, creativity, and education. This app was
+featured at the UNC Computer Science 60th Anniversary Open House on April 12, 2025.
 
 ---
 
-## Requirements
+## Setup
 
 - Android Studio
 - Android 8.0+ (API level 26+)
 - Google Gemini API key
 
-Add the key to a `.env` file in the root directory:
+Add your Gemini API key to `local.properties`:
 
-```env
-GEMINI_KEY=your_gemini_api_key_here
+```properties
+GEMINI_KEY=your_actual_gemini_api_key_here
 ```
 
 ---
 
-## Capture & Generate
+## Usage
 
-1. Tap **Take a Picture** to open the camera
-2. Gemini generates a short story from the photo
-3. Tap **Generate Scene** to visualize each sentence as an image
-4. Cycle through the AI-rendered illustrations of the story
+1. Tap **Take a Picture** to capture a photo
+2. Gemini generates a short story based on the image
+3. Tap **Generate Scene** to create visuals for each sentence
+4. Swipe through the AI-generated illustrations
 
 ---
 
-## Run Locally
+## Development
 
-Open the project in Android Studio and run on a device or emulator with camera support.
+Open the project in Android Studio and run it on a device or emulator with camera support.
 
-Ensure `.env` is properly configured before building.
+Ensure your `local.properties` file contains a valid Gemini API key before building.
 
 ---
 
 ## License
 
-MIT © 2024
+MIT © 2025
 
 ---
 

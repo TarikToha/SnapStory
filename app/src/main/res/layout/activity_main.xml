@@ -14,7 +14,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="15pt"
         android:layout_marginBottom="10pt"
-        android:text="Welcome to EI  Lab"
+        android:text="Welcome to EI Lab"
         android:textSize="10pt"
         android:textStyle="bold" />
 

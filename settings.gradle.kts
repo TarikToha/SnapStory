@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "VLM App"
+rootProject.name = "SnapStory"
 include(":app")
