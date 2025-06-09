@@ -5,7 +5,7 @@
 Snaps to Visual Narratives is an Android app that turns photos into illustrated micro-stories. It
 uses Google’s Gemini API to generate short narratives from captured images and visualizes each
 sentence with AI-generated artwork—ideal for storytelling, creativity, and education. This app was
-featured at the UNC Computer Science 60th Anniversary Open House on April 12, 2025.
+demonstrated at the UNC Computer Science 60th Anniversary Open House on April 12, 2025.
 
 ---
 
